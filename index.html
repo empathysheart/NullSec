@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NullSec — Discord Community</title>
+    <meta name="description"
+        content="Join the NullSec Discord — a chill cybersecurity community for sharing ideas, learning, and connecting with security enthusiasts.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <!-- Matrix Rain Canvas -->
+    <canvas id="matrix-rain"></canvas>
+
+    <!-- Scan Line Overlay -->
+    <div class="scanline-overlay"></div>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-brand">
+            <span class="terminal-cursor">&gt;_</span>
+            <span class="brand-text">Null<span class="accent">Sec</span></span>
+        </div>
+        <div class="nav-links">
+            <a href="#features" class="nav-link">Features</a>
+            <a href="#community" class="nav-link">Community</a>
+            <a href="#bot" class="nav-link">Bot</a>
+            <a href="#join" class="nav-link cta-link">Join Server</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="hero-content">
+            <div class="glitch-wrapper">
+                <h1 class="hero-title glitch" data-text="NullSec">NullSec</h1>
+            </div>
+            <div class="typing-container">
+                <span class="typing-prefix">root@nullsec:~$ </span>
+                <span class="typing-text" id="typing-text"></span>
+                <span class="cursor-blink">|</span>
+            </div>
+            <p class="hero-subtitle">A chill cybersecurity community for sharing ideas, learning new techniques, and
+                connecting with fellow security enthusiasts.</p>
+            <div class="hero-buttons">
+                <a href="#join" class="btn btn-primary" id="hero-join-btn">
+                    <svg class="btn-icon" viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                            d="M20.317 4.3698a19.7913 19.7913 0 00-4.8851-1.5152.0741.0741 0 00-.0785.0371c-.211.3753-.4447.8648-.6083 1.2495-1.8447-.2762-3.68-.2762-5.4868 0-.1636-.3933-.4058-.8742-.6177-1.2495a.077.077 0 00-.0785-.037 19.7363 19.7363 0 00-4.8852 1.515.0699.0699 0 00-.0321.0277C.5334 9.0458-.319 13.5799.0992 18.0578a.0824.0824 0 00.0312.0561c2.0528 1.5076 4.0413 2.4228 5.9929 3.0294a.0777.0777 0 00.0842-.0276c.4616-.6304.8731-1.2952 1.226-1.9942a.076.076 0 00-.0416-.1057c-.6528-.2476-1.2743-.5495-1.8722-.8923a.077.077 0 01-.0076-.1277c.1258-.0943.2517-.1923.3718-.2914a.0743.0743 0 01.0776-.0105c3.9278 1.7933 8.18 1.7933 12.0614 0a.0739.0739 0 01.0785.0095c.1202.099.246.1981.3728.2924a.077.077 0 01-.0066.1276 12.2986 12.2986 0 01-1.873.8914.0766.0766 0 00-.0407.1067c.3604.698.7719 1.3628 1.225 1.9932a.076.076 0 00.0842.0286c1.961-.6067 3.9495-1.5219 6.0023-3.0294a.077.077 0 00.0313-.0552c.5004-5.177-.8382-9.6739-3.5485-13.6604a.061.061 0 00-.0312-.0286z" />
+                    </svg>
+                    Join the Server
+                </a>
+                <a href="#features" class="btn btn-secondary" id="hero-explore-btn">
+                    <span>Explore Features</span>
+                    <svg class="btn-icon-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M7 17l9.2-9.2M17 17V7.8H7.8" />
+                    </svg>
+                </a>
+            </div>
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <span class="stat-number" data-target="150">0</span>+
+                    <span class="stat-label">Members</span>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat-item">
+                    <span class="stat-number" data-target="20">0</span>+
+                    <span class="stat-label">Channels</span>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat-item">
+                    <span class="stat-number" data-target="10">0</span>+
+                    <span class="stat-label">Topics</span>
+                </div>
+            </div>
+        </div>
+        <div class="hero-visual">
+            <div class="terminal-window">
+                <div class="terminal-header">
+                    <div class="terminal-dots">
+                        <span class="dot red"></span>
+                        <span class="dot yellow"></span>
+                        <span class="dot green"></span>
+                    </div>
+                    <span class="terminal-title">nullsec — bash</span>
+                </div>
+                <div class="terminal-body" id="terminal-body">
+                    <div class="terminal-line"><span class="prompt">$</span> <span class="cmd">nmap -sV
+                            nullsec.local</span></div>
+                    <div class="terminal-line output">Starting Nmap scan...</div>
+                    <div class="terminal-line output">PORT STATE SERVICE</div>
+                    <div class="terminal-line output highlight">443/tcp open community</div>
+                    <div class="terminal-line output highlight">80/tcp open knowledge</div>
+                    <div class="terminal-line output highlight">22/tcp open collaboration</div>
+                    <div class="terminal-line"><span class="prompt">$</span> <span class="cmd">cat /etc/motd</span>
+                    </div>
+                    <div class="terminal-line output success">Welcome to NullSec!</div>
+                    <div class="terminal-line output success">Share. Learn. Hack (ethically).</div>
+                    <div class="terminal-line"><span class="prompt">$</span> <span class="cursor-blink">|</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="section-header">
+            <span class="section-tag">&lt;features&gt;</span>
+            <h2 class="section-title">What We Offer</h2>
+            <p class="section-subtitle">Everything you need to level up your cybersecurity game</p>
+        </div>
+        <div class="features-grid">
+            <div class="feature-card" id="feature-1">
+                <div class="feature-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path
+                            d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                    </svg>
+                </div>
+                <h3 class="feature-title">Security Discussions</h3>
+                <p class="feature-desc">Deep-dive into pentesting, reverse engineering, malware analysis, and more with
+                    fellow enthusiasts.</p>
+            </div>
+            <div class="feature-card" id="feature-2">
+                <div class="feature-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path
+                            d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                    </svg>
+                </div>
+                <h3 class="feature-title">CTF Challenges</h3>
+                <p class="feature-desc">Team up for Capture The Flag competitions, share writeups, and practice with
+                    custom challenges.</p>
+            </div>
+            <div class="feature-card" id="feature-3">
+                <div class="feature-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path
+                            d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                    </svg>
+                </div>
+                <h3 class="feature-title">Learning Resources</h3>
+                <p class="feature-desc">Curated resources, tutorials, and study guides for certifications like OSCP,
+                    CEH, and CompTIA Security+.</p>
+            </div>
+            <div class="feature-card" id="feature-4">
+                <div class="feature-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+                    </svg>
+                </div>
+                <h3 class="feature-title">Tool Sharing</h3>
+                <p class="feature-desc">Share and discover the latest cybersecurity tools, scripts, and frameworks with
+                    the community.</p>
+            </div>
+            <div class="feature-card" id="feature-5">
+                <div class="feature-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path
+                            d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                    </svg>
+                </div>
+                <h3 class="feature-title">Chill Community</h3>
+                <p class="feature-desc">No toxic vibes — just a relaxed community of people passionate about
+                    cybersecurity and technology.</p>
+            </div>
+            <div class="feature-card" id="feature-6">
+                <div class="feature-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M13 10V3L4 14h7v7l9-11h-7z" />
+                    </svg>
+                </div>
+                <h3 class="feature-title">Active Events</h3>
+                <p class="feature-desc">Regular events, workshops, and live hacking sessions led by experienced security
+                    professionals.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Community Section -->
+    <section class="community" id="community">
+        <div class="section-header">
+            <span class="section-tag">&lt;community&gt;</span>
+            <h2 class="section-title">Our Channels</h2>
+            <p class="section-subtitle">Dedicated spaces for every cybersec topic</p>
+        </div>
+        <div class="channels-container">
+            <div class="channel-category">
+                <h3 class="category-title">📢 General</h3>
+                <div class="channel-list">
+                    <div class="channel-item"><span class="hash">#</span> welcome</div>
+                    <div class="channel-item"><span class="hash">#</span> general-chat</div>
+                </div>
+            </div>
+            <div class="channel-category">
+                <h3 class="category-title">🔒 Security</h3>
+                <div class="channel-list">
+                    <div class="channel-item"><span class="hash">#</span> pentesting</div>
+                    <div class="channel-item"><span class="hash">#</span> reverse-engineering</div>
+                    <div class="channel-item"><span class="hash">#</span> malware-analysis</div>
+                    <div class="channel-item"><span class="hash">#</span> web-security</div>
+                    <div class="channel-item"><span class="hash">#</span> network-security</div>
+                </div>
+            </div>
+            <div class="channel-category">
+                <h3 class="category-title">🏆 Challenges</h3>
+                <div class="channel-list">
+                    <div class="channel-item"><span class="hash">#</span> ctf-teams</div>
+                    <div class="channel-item"><span class="hash">#</span> writeups</div>
+                    <div class="channel-item"><span class="hash">#</span> practice-labs</div>
+                </div>
+            </div>
+            <div class="channel-category">
+                <h3 class="category-title">📚 Resources</h3>
+                <div class="channel-list">
+                    <div class="channel-item"><span class="hash">#</span> tools-and-scripts</div>
+                    <div class="channel-item"><span class="hash">#</span> news-and-articles</div>
+                    <div class="channel-item"><span class="hash">#</span> jobs</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bot Section -->
+    <section class="bot-section" id="bot">
+        <div class="section-header">
+            <span class="section-tag">&lt;bot&gt;</span>
+            <h2 class="section-title">NullBot</h2>
+            <p class="section-subtitle">Our custom Discord bot loaded with cybersec tools</p>
+        </div>
+        <div class="bot-showcase">
+            <div class="bot-commands">
+                <div class="command-card" id="cmd-1">
+                    <div class="command-header">
+                        <span class="command-prefix">/</span>
+                        <span class="command-name">hash</span>
+                    </div>
+                    <p class="command-desc">Generate MD5, SHA1, SHA256, SHA512 hashes of any text instantly.</p>
+                </div>
+                <div class="command-card" id="cmd-2">
+                    <div class="command-header">
+                        <span class="command-prefix">/</span>
+                        <span class="command-name">encode</span>
+                    </div>
+                    <p class="command-desc">Encode & decode Base64, hex, URL, and binary strings.</p>
+                </div>
+                <div class="command-card" id="cmd-3">
+                    <div class="command-header">
+                        <span class="command-prefix">/</span>
+                        <span class="command-name">iplookup</span>
+                    </div>
+                    <p class="command-desc">Lookup IP address geolocation, ISP, and other public info.</p>
+                </div>
+                <div class="command-card" id="cmd-4">
+                    <div class="command-header">
+                        <span class="command-prefix">/</span>
+                        <span class="command-name">whois</span>
+                    </div>
+                    <p class="command-desc">Perform WHOIS lookups on domains to find registration info.</p>
+                </div>
+                <div class="command-card" id="cmd-5">
+                    <div class="command-header">
+                        <span class="command-prefix">/</span>
+                        <span class="command-name">genpass</span>
+                    </div>
+                    <p class="command-desc">Generate secure random passwords with custom length and complexity.</p>
+                </div>
+                <div class="command-card" id="cmd-6">
+                    <div class="command-header">
+                        <span class="command-prefix">/</span>
+                        <span class="command-name">headers</span>
+                    </div>
+                    <p class="command-desc">Fetch and analyze HTTP headers of any website for security review.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Join Section -->
+    <section class="join-section" id="join">
+        <div class="join-card">
+            <div class="join-glow"></div>
+            <h2 class="join-title">Ready to join NullSec?</h2>
+            <p class="join-subtitle">Join our growing community of cybersecurity enthusiasts. It's free, it's chill, and
+                you'll learn something new every day.</p>
+            <a href="https://discord.gg/gePvNF4NZT" class="btn btn-primary btn-large" id="join-btn" target="_blank"
+                rel="noopener">
+                <svg class="btn-icon" viewBox="0 0 24 24" fill="currentColor">
+                    <path
+                        d="M20.317 4.3698a19.7913 19.7913 0 00-4.8851-1.5152.0741.0741 0 00-.0785.0371c-.211.3753-.4447.8648-.6083 1.2495-1.8447-.2762-3.68-.2762-5.4868 0-.1636-.3933-.4058-.8742-.6177-1.2495a.077.077 0 00-.0785-.037 19.7363 19.7363 0 00-4.8852 1.515.0699.0699 0 00-.0321.0277C.5334 9.0458-.319 13.5799.0992 18.0578a.0824.0824 0 00.0312.0561c2.0528 1.5076 4.0413 2.4228 5.9929 3.0294a.0777.0777 0 00.0842-.0276c.4616-.6304.8731-1.2952 1.226-1.9942a.076.076 0 00-.0416-.1057c-.6528-.2476-1.2743-.5495-1.8722-.8923a.077.077 0 01-.0076-.1277c.1258-.0943.2517-.1923.3718-.2914a.0743.0743 0 01.0776-.0105c3.9278 1.7933 8.18 1.7933 12.0614 0a.0739.0739 0 01.0785.0095c.1202.099.246.1981.3728.2924a.077.077 0 01-.0066.1276 12.2986 12.2986 0 01-1.873.8914.0766.0766 0 00-.0407.1067c.3604.698.7719 1.3628 1.225 1.9932a.076.076 0 00.0842.0286c1.961-.6067 3.9495-1.5219 6.0023-3.0294a.077.077 0 00.0313-.0552c.5004-5.177-.8382-9.6739-3.5485-13.6604a.061.061 0 00-.0312-.0286z" />
+                </svg>
+                Join NullSec
+            </a>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <span class="terminal-cursor">&gt;_</span>
+                <span class="brand-text">Null<span class="accent">Sec</span></span>
+            </div>
+            <p class="footer-copy">&copy; 2026 NullSec. All rights reserved. Hack responsibly.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
