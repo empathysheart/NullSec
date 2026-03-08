@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NullSec — The Professional Cybersecurity Community</title>
+    <meta name="description"
+        content="Join NullSec — A premium Discord collective for cybersecurity professionals, ethical hackers, and OSINT researchers. Access our custom NullBot toolkit today.">
+    <meta name="keywords" content="cybersecurity discord, hacking community, osint tools, ctf team, ethical hacking">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <!-- Background Layers -->
+    <canvas id="matrix-canvas"></canvas>
+    <div class="blob-container">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+    </div>
+
+    <!-- Scan Line Overlay -->
+    <div class="scanline-overlay"></div>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-brand">
+            <span class="terminal-cursor">&gt;_</span>
+            <span class="brand-text">Null<span class="accent">Sec</span></span>
+        </div>
+        <div class="nav-links">
+            <a href="#features" class="nav-link">Intel</a>
+            <a href="#bot" class="nav-link">NullBot</a>
+            <a href="#community" class="nav-link">Channels</a>
+            <a href="https://discord.gg/gePvNF4NZT" class="nav-link cta-link" target="_blank">Access Node</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="hero-content">
+            <div class="badge-new">NEW: NULLBOT V2.4 DEPLOYED</div>
+            <div class="glitch-wrapper">
+                <h1 class="hero-title glitch" data-text="NullSec">NullSec</h1>
+            </div>
+            <div class="typing-container">
+                <span class="typing-prefix">guest@nullsec:~$ </span>
+                <span class="typing-text" id="typing-text"></span>
+                <span class="cursor-blink">|</span>
+            </div>
+            <p class="hero-subtitle">The ultimate collective for ethical hackers, OSINT analysts, and privacy advocates.
+                Secure your digital footprint and master the craft.</p>
+            <div class="hero-buttons">
+                <a href="https://discord.gg/gePvNF4NZT" class="btn btn-primary" id="hero-join-btn" target="_blank">
+                    <svg class="btn-icon" viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                            d="M20.317 4.3698a19.7913 19.7913 0 00-4.8851-1.5152.0741.0741 0 00-.0785.0371c-.211.3753-.4447.8648-.6083 1.2495-1.8447-.2762-3.68-.2762-5.4868 0-.1636-.3933-.4058-.8742-.6177-1.2495a.077.077 0 00-.0785-.037 19.7363 19.7363 0 00-4.8852 1.515.0699.0699 0 00-.0321.0277C.5334 9.0458-.319 13.5799.0992 18.0578a.0824.0824 0 00.0312.0561c2.0528 1.5076 4.0413 2.4228 5.9929 3.0294a.0777.0777 0 00.0842-.0276c.4616-.6304.8731-1.2952 1.226-1.9942a.076.076 0 00-.0416-.1057c-.6528-.2476-1.2743-.5495-1.8722-.8923a.077.077 0 01-.0076-.1277c.1258-.0943.2517-.1923.3718-.2914a.0743.0743 0 01.0776-.0105c3.9278 1.7933 8.18 1.7933 12.0614 0a.0739.0739 0 01.0785.0095c.1202.099.246.1981.3728.2924a.077.077 0 01-.0066.1276 12.2986 12.2986 0 01-1.873.8914.0766.0766 0 00-.0407.1067c.3604.698.7719 1.3628 1.225 1.9932a.076.076 0 00.0842.0286c1.961-.6067 3.9495-1.5219 6.0023-3.0294a.077.077 0 00.0313-.0552c.5004-5.177-.8382-9.6739-3.5485-13.6604a.061.061 0 00-.0312-.0286z" />
+                    </svg>
+                    Join Command Center
+                </a>
+                <a href="#bot" class="btn btn-secondary" id="hero-explore-btn">
+                    <span>Explore NullBot</span>
+                    <svg class="btn-icon-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M7 17l9.2-9.2M17 17V7.8H7.8" />
+                    </svg>
+                </a>
+            </div>
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <span class="stat-number" data-target="250">0</span>+
+                    <span class="stat-label">Operators</span>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat-item">
+                    <span class="stat-number" data-target="1500">0</span>+
+                    <span class="stat-label">Scans/Day</span>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat-item">
+                    <span class="stat-number" data-target="45">0</span>+
+                    <span class="stat-label">Tools</span>
+                </div>
+            </div>
+        </div>
+        <div class="hero-visual">
+            <div class="terminal-window">
+                <div class="terminal-header">
+                    <div class="terminal-dots">
+                        <span class="dot red"></span>
+                        <span class="dot yellow"></span>
+                        <span class="dot green"></span>
+                    </div>
+                    <span class="terminal-title">nullsec — remote_access</span>
+                </div>
+                <div class="terminal-body" id="terminal-body">
+                    <div class="terminal-line"><span class="prompt">$</span> <span class="cmd">./nullbot --status</span>
+                    </div>
+                    <div class="terminal-line output">[+] NullBot Core: ONLINE</div>
+                    <div class="terminal-line output">[+] OSINT Module: ACTIVE</div>
+                    <div class="terminal-line output">[+] Crypto Engine: AES-256 READY</div>
+                    <div class="terminal-line output success">>>> System optimized. No vulnerabilities detected.</div>
+                    <div class="terminal-line"><span class="prompt">$</span> <span class="cmd">whoami</span></div>
+                    <div class="terminal-line output highlight">nullsec_operator_1337</div>
+                    <div class="terminal-line"><span class="prompt">$</span> <span class="cursor-blink">|</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="section-header">
+            <span class="section-tag">&lt;intelligence&gt;</span>
+            <h2 class="section-title">Why NullSec?</h2>
+            <p class="section-subtitle">We don't just chat. We build, scan, and secure the digital world.</p>
+        </div>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <path
+                            d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                    </svg></div>
+                <h3 class="feature-title">Advanced Recon</h3>
+                <p class="feature-desc">Access high-grade OSINT tools through NullBot. Trace IPs, audit domains, and
+                    verify identities instantly.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <path
+                            d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                    </svg></div>
+                <h3 class="feature-title">CTF Collective</h3>
+                <p class="feature-desc">Join our competitive team. We participate in global CTFs and provide live feeds
+                    from CTFtime.org.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <path d="M13 10V3L4 14h7v7l9-11h-7z" />
+                    </svg></div>
+                <h3 class="feature-title">Crypto Operations</h3>
+                <p class="feature-desc">Secure your communications with our AES-256 Symmetric encryption engine and
+                    classic cipher tools.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bot Section -->
+    <section class="bot-section" id="bot">
+        <div class="section-header">
+            <span class="section-tag">&lt;bot_arsenal&gt;</span>
+            <h2 class="section-title">The NullBot Arsenal</h2>
+            <p class="section-subtitle">A professional suite of 45+ security tools available via simple slash commands.
+            </p>
+        </div>
+
+        <div class="bot-showcase">
+            <div class="command-filters">
+                <button class="filter-btn active" data-filter="all">All Tools</button>
+                <button class="filter-btn" data-filter="osint">OSINT</button>
+                <button class="filter-btn" data-filter="crypto">Crypto</button>
+                <button class="filter-btn" data-filter="recon">Recon</button>
+            </div>
+
+            <div class="bot-commands" id="command-grid">
+                <!-- OSINT -->
+                <div class="command-card" data-category="osint">
+                    <div class="command-header">
+                        <span class="command-prefix">/</span>
+                        <span class="command-name">shield</span>
+                    </div>
+                    <p class="command-desc">Professional AES-256 symmetric encryption. Lock your data with generated
+                        secret keys.</p>
+                    <div class="command-tag">CRYPTO</div>
+                </div>
+                <div class="command-card" data-category="osint">
+                    <div class="command-header">
+                        <span class="command-prefix">/</span>
+                        <span class="command-name">breach</span>
+                    </div>
+                    <p class="command-desc">Query massive data leak databases for exposed emails and digital footprints.
+                    </p>
+                    <div class="command-tag">OSINT</div>
+                </div>
+                <div class="command-card" data-category="recon">
+                    <div class="command-header">
+                        <span class="command-prefix">/</span>
+                        <span class="command-name">ssl</span>
+                    </div>
+                    <p class="command-desc">Deep-audit SSL/TLS certificates. Check expiry, issuer, and potential
+                        vulnerabilities.</p>
+                    <div class="command-tag">RECON</div>
+                </div>
+                <div class="command-card" data-category="osint">
+                    <div class="command-header">
+                        <span class="command-prefix">/</span>
+                        <span class="command-name">shodan</span>
+                    </div>
+                    <p class="command-desc">Direct integration with Shodan.io to analyze connected infrastructure and
+                        ports.</p>
+                    <div class="command-tag">OSINT</div>
+                </div>
+                <div class="command-card" data-category="recon">
+                    <div class="command-header">
+                        <span class="command-prefix">/</span>
+                        <span class="command-name">dns</span>
+                    </div>
+                    <p class="command-desc">Perform recursive DNS lookups (A, MX, TXT) via secure Google DoH protocols.
+                    </p>
+                    <div class="command-tag">RECON</div>
+                </div>
+                <div class="command-card" data-category="crypto">
+                    <div class="command-header">
+                        <span class="command-prefix">/</span>
+                        <span class="command-name">cipher</span>
+                    </div>
+                    <p class="command-desc">The ultimate cipher tool: Caesar, Vigenere, Atbash, and more in one command.
+                    </p>
+                    <div class="command-tag">CRYPTO</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Community Section -->
+    <section class="community" id="community">
+        <div class="section-header">
+            <span class="section-tag">&lt;infrastructure&gt;</span>
+            <h2 class="section-title">The Node</h2>
+            <p class="section-subtitle">Categorized bays for deep learning and specialized discussion.</p>
+        </div>
+        <div class="channels-container">
+            <div class="channel-category">
+                <h3 class="category-title">🏁 Intel & Ops</h3>
+                <div class="channel-list">
+                    <div class="channel-item"><span class="hash">#</span> vulnerability-news</div>
+                    <div class="channel-item"><span class="hash">#</span> operation-logs</div>
+                    <div class="channel-item"><span class="hash">#</span> intel-feed</div>
+                </div>
+            </div>
+            <div class="channel-category">
+                <h3 class="category-title">🛠️ Laboratories</h3>
+                <div class="channel-list">
+                    <div class="channel-item"><span class="hash">#</span> pentesting-lab</div>
+                    <div class="channel-item"><span class="hash">#</span> crypto-bay</div>
+                    <div class="channel-item"><span class="hash">#</span> exploit-dev</div>
+                </div>
+            </div>
+            <div class="channel-category">
+                <h3 class="category-title">🏆 Achievement</h3>
+                <div class="channel-list">
+                    <div class="channel-item"><span class="hash">#</span> ranking-lobby</div>
+                    <div class="channel-item"><span class="hash">#</span> challenge-solved</div>
+                </div>
+            </div>
+            <div class="channel-category">
+                <h3 class="category-title">📡 Archive</h3>
+                <div class="channel-list">
+                    <div class="channel-item"><span class="hash">#</span> tool-repository</div>
+                    <div class="channel-item"><span class="hash">#</span> study-guides</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Join Section -->
+    <section class="join-section" id="join">
+        <div class="join-card">
+            <div class="join-glow"></div>
+            <h2 class="join-title">Secure Your Invite</h2>
+            <p class="join-subtitle">Join 250+ security enthusiasts in the NullSec collective. Access NullBot and start
+                your mission today.</p>
+            <a href="https://discord.gg/gePvNF4NZT" class="btn btn-primary btn-large" id="join-btn" target="_blank"
+                rel="noopener">
+                <svg class="btn-icon" viewBox="0 0 24 24" fill="currentColor">
+                    <path
+                        d="M20.317 4.3698a19.7913 19.7913 0 00-4.8851-1.5152.0741.0741 0 00-.0785.0371c-.211.3753-.4447.8648-.6083 1.2495-1.8447-.2762-3.68-.2762-5.4868 0-.1636-.3933-.4058-.8742-.6177-1.2495a.077.077 0 00-.0785-.037 19.7363 19.7363 0 00-4.8852 1.515.0699.0699 0 00-.0321.0277C.5334 9.0458-.319 13.5799.0992 18.0578a.0824.0824 0 00.0312.0561c2.0528 1.5076 4.0413 2.4228 5.9929 3.0294a.0777.0777 0 00.0842-.0276c.4616-.6304.8731-1.2952 1.226-1.9942a.076.076 0 00-.0416-.1057c-.6528-.2476-1.2743-.5495-1.8722-.8923a.077.077 0 01-.0076-.1277c.1258-.0943.2517-.1923.3718-.2914a.0743.0743 0 01.0776-.0105c3.9278 1.7933 8.18 1.7933 12.0614 0a.0739.0739 0 01.0785.0095c.1202.099.246.1981.3728.2924a.077.077 0 01-.0066.1276 12.2986 12.2986 0 01-1.873.8914.0766.0766 0 00-.0407.1067c.3604.698.7719 1.3628 1.225 1.9932a.076.076 0 00.0842.0286c1.961-.6067 3.9495-1.5219 6.0023-3.0294a.077.077 0 00.0313-.0552c.5004-5.177-.8382-9.6739-3.5485-13.6604a.061.061 0 00-.0312-.0286z" />
+                </svg>
+                Join Command Center
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <span class="terminal-cursor">&gt;_</span>
+                <span class="brand-text">Null<span class="accent">Sec</span></span>
+            </div>
+            <p class="footer-copy">&copy; 2026 NullSec Collective. All rights reserved. Hack responsibly.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
