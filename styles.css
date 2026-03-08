@@ -304,6 +304,19 @@ a {
     cursor: pointer;
     border: none;
     font-family: inherit;
+    white-space: nowrap;
+}
+
+.btn-icon {
+    width: 24px;
+    height: 24px;
+    flex-shrink: 0;
+}
+
+.btn-icon-right {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
 }
 
 .btn-primary {
